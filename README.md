@@ -43,7 +43,7 @@ sudo ufw enable
 sudo ufw allow 4242
 
 
-EVALUATION
+# EVALUATION
 hostname has to be modified, how to do this?
 password policies are stored in /etc/pam.d/common-password file.
 hostname capital I vs small i IP difference: https://stackoverflow.com/questions/60615270/hostname-i-vs-hostname-i-in-linux
