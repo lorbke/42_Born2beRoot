@@ -41,6 +41,18 @@ sudo nano /etc/ssh/sshd_config
 sudo apt install ufw  
 sudo ufw enable  
 sudo ufw allow 4242  
+# Cron
+crontab -e (choose editor)
+([write] */10 * * * * //usr/local/bin/monitoring.sh)
+
+# Bonus
+sudo apt install lighttpd
+sudo apt install mariadb-server
+sudo apt install php
+sudo ufw allow 42 (allow connections on port 42)
+sudo mariadb (log into MariaDB)
+CREATE DATABASE Born2beRoot; (creates SQL database)
+CREATE USER lorbke@localhost IDENTIFIED BY Born2beRoot; (creates a new user)
 
 
 # EVALUATION
