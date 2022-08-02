@@ -46,14 +46,27 @@ crontab -e (choose editor)
 ([write] */10 * * * * //usr/local/bin/monitoring.sh)
 
 # Bonus
-sudo apt install lighttpd
-sudo apt install mariadb-server
-sudo apt install php
-sudo ufw allow 42 (allow connections on port 42)
-sudo mariadb (log into MariaDB)
-CREATE DATABASE Born2beRoot; (creates SQL database)
-CREATE USER lorbke@localhost IDENTIFIED BY Born2beRoot; (creates a new user)
-
+sudo apt install lighttpd  
+sudo apt install mariadb-server  
+sudo apt install php-cgi php-mysql  
+sudo ufw allow 80 (allow connections on port 80)  
+sudo mysql_secure_installation (start script to remove insecure default mysql settings)  
+sudo mariadb (log into MariaDB)  
+CREATE DATABASE bonus; (creates SQL database)  
+GRANT ALL ON bonus.* TO 'lorbke'@localhost IDENTIFIED BY 'Born2beRoot' WITH GRANT OPTION; (creates a new user with full permissions)  
+FLUSH PRIVILEGES; (reloads the tables of the database so changes take effect)  
+sudo wget http://wordpress.org/latest.tar.gz -P /var/www/html (get newest wordpress .tar)  
+sudo tar -xzvf /var/www/html/latest.tar.gz (extract)  
+sudo rm /var/www/html/latest.tar.gz  
+sudo cp -r /var/www/html/wordpress/* /var/www/html  (copy wordpress files)
+sudo rm -rf /var/www/html/wordpress  
+sudo cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php  
+sudo nano /var/www/html/wp-config.php  
+(insert database name, user name and password)
+sudo lighty-enable-mod fastcgi
+sudo lighty-enable-mod fastcgi-php
+sudo service lighttpd force-reload (these services are needed for a functioning webserver)  
+(open browser, connect to 127.0.0.1:80 | make sure port 4242 and 80 are allowed in VirtualBox settings)
 
 # EVALUATION
 hostname has to be modified, how to do this?  
