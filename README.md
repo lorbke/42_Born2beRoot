@@ -86,3 +86,36 @@ hostname capital I vs small i IP difference: https://stackoverflow.com/questions
 FTP active vs passive: in active mode FTP server initializes the data connection, often prompting a block from the firewall of the client. in passive mode both connections are initialized by the client, therefore not causing any firewall problems  
 sudo lsof -P -i | grep LISTEN
 ssh lorbke@localhost -p 4242
+
+
+Basic diff between CentOS and Debian?  
+
+diff between aptitude and apt?  
+
+what is APPArmor?  
+
+cat /etc/os-release  
+PW policy files: /etc/pam.d/common-password, /etc/login.defs. 
+
+cronjob every 30 seconds  
+*/1 * * * * //usr/local/bin/monitoring.sh  
+*/1 * * * * sleep 30 && //usr/local/bin/monitoring.sh/  
+
+sudo groupadd test  
+sudo usermod -a -G test lorbke  
+sudo groupdel test  
+
+hostname  
+sudo hostnamectl set-hostname lorbke42  
+lsblk  
+how does LVM work?  
+
+what is sudo?  
+sudo gives you full rights to do everything  
+
+what is ufw?  
+uncomplicated firewall, managing port access  
+
+what is ssh?  
+secure way to remotely access a server over an unsecure network  
+
