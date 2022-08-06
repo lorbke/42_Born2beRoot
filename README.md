@@ -89,7 +89,7 @@ ssh lorbke@localhost -p 4242
 
 
 Basic diff between CentOS and Debian?  
-
+two different operating systems, CentOS is distributed by commercial Red Hat foundation while Debian is distributed by the Linux foundation.
 
 diff between aptitude and apt?  
 aptitude has GUI, apt is just command.  
@@ -118,10 +118,12 @@ sudo gives you full rights to do everything
 
 what is ufw?  
 uncomplicated firewall, managing port access  
+sudo ufw status numbered  
+sudo ufw delete [number]  
 
 what is ssh?  
 secure way to remotely access a server over an unsecure network  
 
 NAT vs bridged?
-NAT = all trafic is funneled through the host, VM just has non-routable inside address
+NAT = all trafic is funneled through the host, VM just has non-routable inside address, when trying to connect to the VM this can lead to problems as there is no direct adressable IP
 bridged = just like a physical switch, VM is part of the network and can directly connect 
