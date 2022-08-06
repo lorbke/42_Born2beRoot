@@ -19,7 +19,7 @@ usermod -aG sudo lorbke (add user lorbke to sudo group)
 sudo groupmod -n lorbke42 lorbke  
 # Password Policies
 sudo nano /etc/pam.d/common-password (open password policy file)  
-([find] password [success=2 default=ignore] pam_unix.so obscure sha512 [and add] minlen=10)  
+([find] password [success=2 default=ignore] pam_unix.so obscure sha512 [and add] minlen=10 enforce_for_root)  
 sudo apt install libpam-pwquality (install password complexity library)  
 sudo nano /etc/pam.d/common-password (open password policy file)  
 ([find] password        requisite                       pam_pwquality.so retry=3 [and add] ucredit=-1 lcredit=-1 dcredit=-1 difok=7 usercheck=1 enforcing=1 maxrepeat=3) (https://www.networkworld.com/article/2726217/how-to-enforce-password-complexity-on-linux.html)  
@@ -90,9 +90,12 @@ ssh lorbke@localhost -p 4242
 
 Basic diff between CentOS and Debian?  
 
+
 diff between aptitude and apt?  
+aptitude has GUI, apt is just command.  
 
 what is APPArmor?  
+its a security software that allows individual permissions for users.  
 
 cat /etc/os-release  
 PW policy files: /etc/pam.d/common-password, /etc/login.defs. 
@@ -119,3 +122,6 @@ uncomplicated firewall, managing port access
 what is ssh?  
 secure way to remotely access a server over an unsecure network  
 
+NAT vs bridged?
+NAT = all trafic is funneled through the host, VM just has non-routable inside address
+bridged = just like a physical switch, VM is part of the network and can directly connect 
